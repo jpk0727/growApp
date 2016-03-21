@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+          <h1><b><font color="green">Grow</font></b>: Controlled, Automated, and Research Oriented Agriculture</h1>
+        <p>We are building on automated growing environment for optimizing crop production. Here you can monitor the conditions of our crops, analyze the data that is constantly being collected, and design and execute experiments on the actual system. This project is funded by Swarthmore College Department of Engineering created by Connie Bowen and Jess Karol for their Senior Engineering Design Project.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Check out the box's current conditions</h2>
+          <pre>
+            <table align="center">
+              <tr>
+                <th> Time </th>
+                <th> Temperature </th>
+                <th> Humidity </th>
+                <th> Light Intensity </th>
+              </tr>
+              <tr>
+                <td>
+                    <button class = "btn btn-primary" type="button">
+                        <span class = "badge">{{query.time}}</span>
+                    </button>
+                </td>
+                <td>
+                    <button class = "btn btn-primary" type="button">
+                        <span class = "badge">{{query.temp}}</span>
+                    </button>
+                </td>
+                <td>
+                    <button class = "btn btn-primary" type="button">
+                        <span class = "badge">{{query.hum}}</span>
+                    </button>
+                </td>
+                <td>
+                    <button class = "btn btn-primary" type="button">
+                        <span class = "badge">{{query.light}}</span>
+                    </button>
+                </td>
+              </tr>
+            </table>
+          </pre>
+        </div>
+            
+        <div class="col-lg-4">
+          <h2>What it Means</h2>
+          <p>Our growing environment monitors what the plants are currently experiencing. In order to optimize production, it is necessary that these parameters stay within a healthy ranges. Thus, we have feedback systems based on the sensors outputs to regulate these conditions, so shouldn't see them vary too much unless something goes wrong. When the temperature or humidity gets too high, the fan will kick on and when there is not enough external light, the LEDs will illuminate.</p>
+          <p><a class="btn btn-default" href="/monitor">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Swarthmore Department of Engineering</p>
+      </footer>
+    </div> <!-- /container -->
+
+  </body>
+  <link rel="stylesheet" href="static/css/base.css">
+</html>
+{% endblock %}

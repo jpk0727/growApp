@@ -1,0 +1,31 @@
+{% extends '../../apps/base/templates/monitor.html' %}
+{% block content%}
+<div id="datepicker" class="well">
+    <h2>Pick a timeframe to view data</h2>
+    <div class="container">
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                    <input type='text' class="form-control" value="05/05/2016" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-5'>
+            <button type="button" class="btn btn-primary">Refresh</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

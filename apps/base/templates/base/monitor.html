@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="well">
+    <h1> Specify a Timeframe </h1>
+    <h4> (The default shows all data) </h4>
+    <form method="post" role="form">
+        {% for field in form.visible_fields %}
+        <div id="div_{{ field.html_name }}" 
+                        class="form-group{% if field.errors %} has-error{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+            <div class="text-muted pull-right">
+                    <small>{{ field.help_text }}</small>
+            </div>
+            <div class="help-block">
+                    {{ field.errors }}
+            </div>
+        </div>
+        {% endfor %}
+        {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+        {% endfor %}
+        {% csrf_token %}
+        <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-success" />
+        </div>
+    </form>
+</div>
+<div id="line_chart" class="well">
+    <div class "container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h1>Temperature</h1>
+                {{ line_chart1.as_html }}
+            </div>
+            <div class="col-lg-3">
+                <h2> About  </h2>
+                <h4> The temperature in the box is measured near the surface of the plants. The box is insulated with corrugated plastic and acrylic and is often above room temperature because the lights dissipate heat. However, if temperatures raise to high, the fan is triggered in order to maintain temperatures within a specified threshold.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="line_chart" class="well">
+    <div class "container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h1>Humidity</h1>
+                {{ line_chart2.as_html }}
+            </div>
+            <div class="col-lg-3">
+                <h2> About  </h2>
+                <h4> The humidity of the box is measured near the surface of the plants. The humidity naturally raises and lowers when the misting system is activated. It also is regulated using the fan in order to maintain a lower relative humidity than would otherwise occur. Too little or too much humidity is not good for the plants health. </h4> 
+           </div>
+        </div>
+    </div>
+</div>
+<div id="line_chart" class="well">
+    <h2>Light</h2>
+    {{ line_chart3.as_html }}
+</div> 
+<div id="line_chart" class="well">
+    <h2>Amout of Light in Lux (Infrared and Visable Light)</h2>
+    {{ line_chart4.as_html }}
+</div>{% endblock %}
+

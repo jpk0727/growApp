@@ -1,0 +1,38 @@
+/* App custom css */
+
+.jumbotron {
+		/*background: url('../../static/img/aero_background.jpg') no-repeat center center;
+		 */
+}
+
+.center {
+		margin: auto;
+		width: 60%;
+		border: 3px solid #73AD21;
+		padding: 10px;
+}
+
+table {
+color: #333;
+font-family: Helvetica, Arial, sans-serif;
+width: 640px; 
+border-collapse: 
+collapse; border-spacing: 0; 
+}
+
+td, th { 
+		border: 1px solid transparent; /* No more visible border */
+		height: 30px; 
+		transition: all 0.3s;  /* Simple transition for hover effect */
+		text-align: center;
+}
+
+th {
+		background: #DFDFDF;  /* Darken header a bit */
+		font-weight: bold;
+}
+
+td {
+		background: #FAFAFA;
+}
+
