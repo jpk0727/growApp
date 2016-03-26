@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-3">
                 <h2> About  </h2>
-                <h4> The temperature in the box is measured near the surface of the plants. The box is insulated with corrugated plastic and acrylic and is often above room temperature because the lights dissipate heat. However, if temperatures raise to high, the fan is triggered in order to maintain temperatures within a specified threshold.</h4>
+                <h4> The temperature in the box is measured near the surface of the plants. The box is insulated with corrugated plastic and acrylic and is often above room temperature because the LED lights dissipate heat. However, if temperatures raise to high, the fan is triggered in order to maintain temperatures within a specified threshold.</h4>
             </div>
         </div>
     </div>
@@ -55,9 +55,19 @@
     </div>
 </div>
 <div id="line_chart" class="well">
-    <h2>Light</h2>
-    {{ line_chart3.as_html }}
-</div> 
+    <div class "container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h1>Light (photo resistor)</h1>
+                {{ line_chart3.as_html }}
+            </div>
+            <div class="col-lg-3">
+                <h2> About  </h2>
+                <h4> The photo-resistor that measures light intensity is located near the surface of the plants. The plants use light from both the LED growth lights that are positioned just above the pots as well as ambient light from the sun and lights in the room that enter through the plastic walls. The plants run on an 18 hour cycle, which means that they receive 18 hours of light from the LEDs and 6 hours of darkness during the night. This cycle has been shown to be optimal for growth for greens like the ones that are being grown. On the other hand, a 12 hour cycle is optimal for flowering.</h4>  
+           </div>
+        </div>
+    </div>
+</div>
 <div id="line_chart" class="well">
     <h2>Amout of Light in Lux (Infrared and Visable Light)</h2>
     {{ line_chart4.as_html }}

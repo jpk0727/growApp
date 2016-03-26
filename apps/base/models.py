@@ -16,3 +16,10 @@ class sensors(models.Model):
 
     java_time = property(_java_time)
     
+
+class plant_area(models.Model):
+    date = models.DateTimeField()
+    row = models.CharField(max_length=2)
+    column = models.IntegerField()
+    area = models.FloatField()
+    height = models.FloatField()
