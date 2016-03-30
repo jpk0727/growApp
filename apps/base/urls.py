@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = patterns('base.views',
     url(r'^$', 'home', name='home'),
-    url(r'^monitor/$', 'monitor', name='monitor'),
-    url(r'^about/$', 'about', name='about'),
-    url(r'^control/$', 'control', name='control'),
+    url(r'^grow/monitor/$', 'monitor', name='monitor'),
+    url(r'^grow/about/$', 'about', name='about'),
+    url(r'^grow/control/$', 'control', name='control'),
 )
 

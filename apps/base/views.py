@@ -65,10 +65,10 @@ def monitor(request):
     data_source4 = ModelDataSource(queryset, fields=['java_time','lux'])
     
 
-    line_chart1 = flot.LineChart(data_source1,options = {'series': {'lines': {'fill':'true'}, 'color':'blue'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P'}})
-    line_chart2 = flot.LineChart(data_source2,options = {'series': {'lines': {'fill':'true'}, 'color':'red'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P'}})
+    line_chart1 = flot.LineChart(data_source1,options = {'series': {'lines': {'fill':'true'}, 'color':'blue'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P', "timezone":"browser"}})
+    line_chart2 = flot.LineChart(data_source2,options = {'series': {'lines': {'fill':'true'}, 'color':'red'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
     line_chart3 = flot.LineChart(data_source3,options = {'series': {'lines': {'fill':'true'}, 'color':'green'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P'}})
-    line_chart4 = flot.LineChart(data_source4,options = {'series': {'lines': {'fill':'true'}, 'color':'purple'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P'}})
+    line_chart4 = flot.LineChart(data_source4,options = {'series': {'lines': {'fill':'true'}, 'color':'purple'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
 
     context = {
             "line_chart1": line_chart1,
