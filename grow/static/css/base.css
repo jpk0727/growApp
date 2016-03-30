@@ -1,8 +1,9 @@
 /* App custom css */
 
-.jumbotron {
-		/*background: url('../../static/img/aero_background.jpg') no-repeat center center;
-		 */
+.backimg {
+		background: url('../../static/img/plants1.JPG') no-repeat center center;
+		background-size: cover;
+		min-height: 300px
 }
 
 .center {
