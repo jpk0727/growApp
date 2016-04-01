@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-3">
                 <h2> About  </h2>
-                <h4> The temperature in the box is measured near the surface of the plants. The box is insulated with corrugated plastic and acrylic and is often above room temperature because the LED lights dissipate heat. However, if temperatures raise to high, the fan is triggered in order to maintain temperatures within a specified threshold.</h4>
+                <h4> The temperature in the box is measured near the surface of the plants. The box is insulated with corrugated plastic and acrylic and is often above room temperature because the LED lights radiate heat. However, if temperatures raise to high, the fan is triggered in order to maintain temperatures within a specified threshold.</h4>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-lg-3">
                 <h2> About  </h2>
-                <h4> The humidity of the box is measured near the surface of the plants. The humidity naturally raises and lowers when the misting system is activated. It also is regulated using the fan in order to maintain a lower relative humidity than would otherwise occur. Too little or too much humidity is not good for the plants health. </h4> 
+                <h4> The humidity of the box is measured near the surface of the plants. The humidity naturally raises when the misting system is activated. The fan turns on when high humidity levels are detected in order to maintain a lower relative humidity than would otherwise occur. Excessively dry conditions are not good for the plants health, and excess humidity can conribute to mold growth. </h4> 
            </div>
         </div>
     </div>
@@ -63,13 +63,23 @@
             </div>
             <div class="col-lg-3">
                 <h2> About  </h2>
-                <h4> The photo-resistor that measures light intensity is located near the surface of the plants. The plants use light from both the LED growth lights that are positioned just above the pots as well as ambient light from the sun and lights in the room that enter through the plastic walls. The plants run on an 18 hour cycle, which means that they receive 18 hours of light from the LEDs and 6 hours of darkness during the night. This cycle has been shown to be optimal for growth for greens like the ones that are being grown. On the other hand, a 12 hour cycle is optimal for flowering.</h4>  
+                <h4> The photo-resistor that measures light intensity is located near the surface of the plants. The plants absorb direct light from the LED growth lights that are positioned 12" above the pots, as well as ambient light from the sun and room lighting that enters through the transparent walls. The system runs on an 18 hour cycle, which means that the plants receive 18 hours of light from the LEDs and 6 hours of darkness during the night. This cycle has been shown to be optimal for growth for greens like the ones that are being grown. The light cycle can be adapted for other types of plants (flowering, root vegetables).</h4>  
            </div>
         </div>
     </div>
 </div>
 <div id="line_chart" class="well">
-    <h2>Amout of Light in Lux (Infrared and Visable Light)</h2>
-    {{ line_chart4.as_html }}
+    <div class "container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h1>Amout of Light in Lux (Infrared and Visable Light)</h1>
+                {{ line_chart4.as_html }}
+            </div>
+            <div class="col-lg-3">
+                <h2> About  </h2>
+                <h4> This light sensor varies from the photo-resistor monitor in that it is only capturing specific wavelengths of light. Plants absorb light at wavelengths from 400-700 nm. Our LED grow lights are designed to optimize plant growth and include blue lamps (440nm-460nm) and red lamps (630nm-660nm). The outputs displayed in this graph are more useful in seeing what amounts of light the plants are actually absorbing. Currently, the sensor is having trouble taking consistent readings, so, as you can see, the data is often 0.<h4>
+           </div>
+        </div>
+    </div>
 </div>{% endblock %}
 
