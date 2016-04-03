@@ -81,5 +81,22 @@
            </div>
         </div>
     </div>
-</div>{% endblock %}
+</div>
+<div id="line_chart" class="well">
+    <div class "container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h1>Average Total Amount of Water in Liters</h1>
+                {{ line_chart5.as_html }}
+            </div>
+            <div class="col-lg-3">
+                <h2> About  </h2>
+                <h4> This graph shows the total amount of water each of the three
+                    rows is recieving from the aero misters. The rows are watered once every 4 hours, and each row recieves mist for a different amount of time. Using the line pressure and the flow rate of the nozzels, we calulated that each row outputs approximatly 0.008 liters per second. This is used to determine how much water in total the row has recieved. As you can see from the graph, the first row recieves the most while and the third row recieves the least amount of water. By comparing how the plants are growing on average between each row, we can optimize the water amount for the plants. </h4>
+           </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
 

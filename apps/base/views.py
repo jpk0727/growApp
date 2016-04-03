@@ -4,6 +4,7 @@ import time
 from django.shortcuts import render
 from base.models import sensors
 from base.forms import DateForm
+from base.models import water_amount
 
 from django.shortcuts import render, redirect
 from django.views.decorators.cache import cache_page
@@ -50,31 +51,36 @@ def monitor(request):
     start_date = dates.get('start_date',start_time)
     end_date = dates.get('end_date',end_time)
     
-    #start_stamp = calendar.timegm(time.strptime(start_date, "%Y-%m-%d %H:%M"))
     start_stamp = time.mktime(time.strptime(start_date, "%Y-%m-%d %H:%M"))
     end_stamp = time.mktime(time.strptime(end_date, "%Y-%m-%d %H:%M"))
-    #end_stamp = calendar.timegm(time.strptime(end_date, "%Y-%m-%d %H:%M"))
-     
 
     queryset = sensors.objects.filter(time__gte = start_stamp,
+                                      time__lt = end_stamp).order_by('time')
+
+    queryset1 = water_amount.objects.filter(time__gte = start_stamp,
                                       time__lt = end_stamp).order_by('time')
         
     data_source1 = ModelDataSource(queryset, fields=['java_time','temp'])
     data_source2 = ModelDataSource(queryset, fields=['java_time','hum'])
     data_source3 = ModelDataSource(queryset, fields=['java_time','light'])
     data_source4 = ModelDataSource(queryset, fields=['java_time','lux'])
-    
+
+    data_source5 = ModelDataSource(queryset1, fields=['java_time','liters_total_r1','liters_total_r2','liters_total_r3'])
+
 
     line_chart1 = flot.LineChart(data_source1,options = {'series': {'lines': {'fill':'true'}, 'color':'blue'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P', "timezone":"browser"}})
     line_chart2 = flot.LineChart(data_source2,options = {'series': {'lines': {'fill':'true'}, 'color':'red'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
     line_chart3 = flot.LineChart(data_source3,options = {'series': {'lines': {'fill':'true'}, 'color':'green'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P'}})
     line_chart4 = flot.LineChart(data_source4,options = {'series': {'lines': {'fill':'true'}, 'color':'purple'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
+    
+    line_chart5 = flot.BarChart(data_source5, options = {'series': {'lines': {'fill':'true'}}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P', "timezone":"browser"}})
 
     context = {
             "line_chart1": line_chart1,
             "line_chart2": line_chart2,
             "line_chart3": line_chart3,
             "line_chart4": line_chart4,
+            "line_chart5": line_chart5,
             "form": form,
             "dates":dates,
             "start_stamp":start_stamp,

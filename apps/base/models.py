@@ -23,3 +23,19 @@ class plant_area(models.Model):
     column = models.IntegerField()
     area = models.FloatField()
     height = models.FloatField()
+
+
+class water_amount(models.Model):
+    time = models.FloatField()
+    liters_added_r1 = models.FloatField()
+    liters_total_r1 = models.FloatField()
+    liters_added_r2 = models.FloatField()
+    liters_total_r2 = models.FloatField()
+    liters_added_r3 = models.FloatField()
+    liters_total_r3 = models.FloatField()
+
+    def _java_time(self):
+        " returns the time in java format "
+        return self.time * 1000
+
+    java_time = property(_java_time)
