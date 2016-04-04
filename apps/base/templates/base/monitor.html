@@ -1,7 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="well">
-    <h1> Specify a Timeframe </h1>
+<div class="jumbotron">
+    <div class="container">
+        <table class="table table-hover">
+            <thread>
+                <tr>
+                    <th>Trial #</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plant Type</th>
+                    <th>Water Regimen</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>3/20/2016</td>
+                    <td>Present</td>
+                    <td>Watercress</td>
+                    <td>30-20-10</td>
+                <tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="jumbotron">
+    <h2> Specify a Timeframe </h2>
     <h4> (The default shows all data) </h4>
     <form method="post" role="form">
         {% for field in form.visible_fields %}
@@ -26,11 +50,13 @@
         </div>
     </form>
 </div>
+
+
 <div id="line_chart" class="well">
     <div class "container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Temperature</h1>
+                <h2>Temperature</h2>
                 {{ line_chart1.as_html }}
             </div>
             <div class="col-lg-3">
@@ -44,7 +70,7 @@
     <div class "container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Humidity</h1>
+                <h2>Humidity</h2>
                 {{ line_chart2.as_html }}
             </div>
             <div class="col-lg-3">
@@ -58,7 +84,7 @@
     <div class "container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Light (photo resistor)</h1>
+                <h2>Light (photo resistor)</h2>
                 {{ line_chart3.as_html }}
             </div>
             <div class="col-lg-3">
@@ -72,7 +98,7 @@
     <div class "container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Amout of Light in Lux (Infrared and Visable Light)</h1>
+                <h2>Amout of Light in Lux (Infrared and Visable Light)</h2>
                 {{ line_chart4.as_html }}
             </div>
             <div class="col-lg-3">
@@ -86,7 +112,7 @@
     <div class "container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Average Total Amount of Water in Liters</h1>
+                <h2>Average Total Amount of Water in Liters</h2>
                 {{ line_chart5.as_html }}
             </div>
             <div class="col-lg-3">
