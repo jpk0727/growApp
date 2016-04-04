@@ -1,30 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="jumbotron">
-    <div class="container">
-        <table class="table table-hover">
-            <thread>
-                <tr>
-                    <th>Trial #</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Plant Type</th>
-                    <th>Water Regimen</th>
-                </tr>
-            </thread>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>3/20/2016</td>
-                    <td>Present</td>
-                    <td>Watercress</td>
-                    <td>30-20-10</td>
-                <tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<div class="jumbotron">
     <h2> Specify a Timeframe </h2>
     <h4> (The default shows all data) </h4>
     <form method="post" role="form">
@@ -49,6 +25,28 @@
                 <input type="submit" value="Submit" class="btn btn-success" />
         </div>
     </form>
+    <div class="container">
+        <table class="table table-hover">
+            <thread>
+                <tr>
+                    <th>Trial #</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plant Type</th>
+                    <th>Water Regimen</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>3/20/2016</td>
+                    <td>Present</td>
+                    <td>Watercress</td>
+                    <td>30-20-10</td>
+                <tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
