@@ -15,6 +15,7 @@ from django.http import HttpResponse
 from graphos.renderers import flot
 from graphos.views import FlotAsJson, RendererAsJson
 from datetime import datetime
+from datetime import timedelta
 
 import json
 import calendar
@@ -54,7 +55,10 @@ def monitor(request):
     start_stamp = time.mktime(time.strptime(start_date, "%Y-%m-%d %H:%M"))
     end_stamp = time.mktime(time.strptime(end_date, "%Y-%m-%d %H:%M"))
 
-    queryset = sensors.objects.filter(time__gte = start_stamp,
+    yesterday = datetime.now() - timedelta(days = 1)
+    yesterday_stamp = yesterday.strftime('%s')
+
+    queryset = sensors.objects.filter(time__gte = yesterday_stamp,
                                       time__lt = end_stamp).order_by('time')
 
     queryset1 = water_amount.objects.filter(time__gte = start_stamp,

@@ -2,7 +2,7 @@
 {% block content %}
 <div class="jumbotron">
     <h2> Specify a Timeframe </h2>
-    <h4> (The default shows all data) </h4>
+    <h4> (The default shows the previous day) </h4>
     <form method="post" role="form">
         {% for field in form.visible_fields %}
         <div id="div_{{ field.html_name }}" 
