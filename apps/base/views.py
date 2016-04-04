@@ -73,7 +73,7 @@ def monitor(request):
     line_chart3 = flot.LineChart(data_source3,options = {'series': {'lines': {'fill':'true'}, 'color':'green'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
     line_chart4 = flot.LineChart(data_source4,options = {'series': {'lines': {'fill':'true'}, 'color':'purple'}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P','timezone':'browser'}})
     
-    line_chart5 = flot.BarChart(data_source5, options = {'series': {'lines': {'fill':'true'}}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P', "timezone":"browser"}})
+    line_chart5 = flot.BarChart(data_source5, options = {'series': {'lines': {'steps':'boolean'}}, 'xaxis':{'mode': 'time', 'timeformat': '%m/%e %I:%M %P', "timezone":"browser"}})
 
     context = {
             "line_chart1": line_chart1,
