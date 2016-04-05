@@ -48,17 +48,18 @@ def monitor(request):
     query = sensors.objects.latest('time')
     query.time = time.ctime(int(query.time))
 
+    yesterday = datetime.now() - timedelta(days = 1)
+    yesterday_time = yesterday.strftime("%Y-%m-%d %H:%M")
+
     dates = request.POST
-    start_date = dates.get('start_date',start_time)
+    start_date = dates.get('start_date',yesterday_time)
     end_date = dates.get('end_date',end_time)
     
     start_stamp = time.mktime(time.strptime(start_date, "%Y-%m-%d %H:%M"))
     end_stamp = time.mktime(time.strptime(end_date, "%Y-%m-%d %H:%M"))
 
-    yesterday = datetime.now() - timedelta(days = 1)
-    yesterday_stamp = yesterday.strftime('%s')
 
-    queryset = sensors.objects.filter(time__gte = yesterday_stamp,
+    queryset = sensors.objects.filter(time__gte = start_stamp,
                                       time__lt = end_stamp).order_by('time')
 
     queryset1 = water_amount.objects.filter(time__gte = start_stamp,
