@@ -1,17 +1,19 @@
 import time
 """Views for the base app"""
 
-from django.shortcuts import render
-from base.models import sensors
-from base.forms import DateForm
-from base.models import water_amount
-
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from django.shortcuts import render, redirect
 from django.views.decorators.cache import cache_page
-from graphos.sources.model import ModelDataSource
 from django.views.generic.base import TemplateView
-from django.http import HttpResponse
-from django.http import HttpResponse
+from django.contrib import messages
+
+from base.models import sensors, controller_setpoints
+from base.forms import DateForm, ControlForm
+from base.models import water_amount
+
+from graphos.sources.model import ModelDataSource
+from django.http import HttpResponse, HttpResponseRedirect
 from graphos.renderers import flot
 from graphos.views import FlotAsJson, RendererAsJson
 from datetime import datetime
@@ -97,5 +99,19 @@ def about(request):
     return render(request, 'base/about.html',{})
 
 def control(request):
-    return render(request, 'base/control.html',{})
+    if request.method == 'GET':
+        cur = controller_setpoints.objects.latest('time')
+        data = {'humidity':cur.humidity,'r1_water':cur.r1_water,'r2_water':cur.r2_water,'r3_water':cur.r3_water}
+        form = ControlForm(initial=data)
+    else:
+        form = ControlForm(request.POST)
+        if form.is_valid():
+            form.time = time.time()
+            form.save()
+            return HttpResponseRedirect('/grow/control')
+    context = {
+            "form":form
+    }
+        
+    return render(request, 'base/control.html',context)
 

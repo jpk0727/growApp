@@ -39,3 +39,10 @@ class water_amount(models.Model):
         return self.time * 1000
 
     java_time = property(_java_time)
+
+class controller_setpoints(models.Model):
+    time = models.FloatField(default=0)
+    humidity = models.IntegerField()
+    r1_water = models.IntegerField()
+    r2_water = models.IntegerField()
+    r3_water = models.IntegerField()

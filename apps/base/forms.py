@@ -1,9 +1,11 @@
 import time
 import json
 import moment
-from datetime import datetime
+from datetime import datetime 
 from django import forms
-from base.models import sensors
+from base.models import sensors, controller_setpoints
+from django.utils.translation import ugettext_lazy as _
+
 
 from bootstrap3_datetime.widgets import DateTimePicker
 
@@ -36,3 +38,17 @@ class DateForm(forms.Form):
                 "maxDate":end_time,
                 "defaultDate":end_time,
                 "sideBySide": True}))
+
+
+class ControlForm(forms.ModelForm):
+
+    class Meta:
+        model = controller_setpoints
+        fields = ['humidity','r1_water','r2_water','r3_water']
+    
+        labels = {
+            "humidity":_("Relative Percent Humidity"),
+            "r1_water":_("Number of Seconds to Water Row 1"),
+            "r2_water":_("Number of Seconds to Water Row 2"),
+            "r3_water":_("Number of Seconds to Water Row 3")
+        }
