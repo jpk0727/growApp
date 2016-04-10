@@ -14,11 +14,27 @@
     <legend> <h2> System Parameters </h2> </legend>
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Wait a minute, are you sure youj want to change the conditions of the box')">
+        <button type="submit password" class="btn btn-primary" onclick="return auth()">    
             {% bootstrap_icon "star" %} Submit
         </button>
 
     </form>
 
 </div>
+
+<SCRIPT>
+function auth() {
+    var password = "aeroponic";
+    var usrpwd = prompt("Please enter the password","");
+
+    if (usrpwd != password) {
+        alert ("Wrong Password!");
+        return false;
+    }
+    return true;
+
+
+}
+</SCRIPT>
+
 {% endblock %}
