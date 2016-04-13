@@ -101,7 +101,7 @@ def about(request):
 def control(request):
     if request.method == 'GET':
         cur = controller_setpoints.objects.latest('id')
-        data = {'humidity':cur.humidity,'r1_water':cur.r1_water,'r2_water':cur.r2_water,'r3_water':cur.r3_water}
+        data = {'humidity':cur.humidity,'r1_water':cur.r1_water,'r2_water':cur.r2_water,'r3_water':cur.r3_water,'lights_on':cur.lights_on,'lights_off':cur.lights_off}
         form = ControlForm(initial=data)
     else:
         form = ControlForm(request.POST)

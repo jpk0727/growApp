@@ -41,14 +41,24 @@ class DateForm(forms.Form):
 
 
 class ControlForm(forms.ModelForm):
+    lights_on = forms.TimeField(
+            widget=DateTimePicker(options={"format": "HH:mm",
+                "locale":"en",
+                "pickDate":0}))
 
+    lights_off = forms.TimeField(
+            widget=DateTimePicker(options={"format": "HH:mm",
+                "locale":"en",
+                "pickDate":0}))
     class Meta:
         model = controller_setpoints
-        fields = ['humidity','r1_water','r2_water','r3_water']
+        fields = ['humidity','r1_water','r2_water','r3_water','lights_on','lights_off']
     
         labels = {
             "humidity":_("Relative Percent Humidity"),
             "r1_water":_("Number of Seconds to Water Row 1"),
             "r2_water":_("Number of Seconds to Water Row 2"),
-            "r3_water":_("Number of Seconds to Water Row 3")
+            "r3_water":_("Number of Seconds to Water Row 3"),
+            "lights_on":_("What time of day to start the lights"),
+            "lights_off":_("What time of day to turn off the lights")
         }
