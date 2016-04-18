@@ -52,13 +52,14 @@ class ControlForm(forms.ModelForm):
                 "pickDate":0}))
     class Meta:
         model = controller_setpoints
-        fields = ['humidity','r1_water','r2_water','r3_water','lights_on','lights_off']
+        fields = ['humidity','r1_water','r2_water','r3_water','water_frequency','lights_on','lights_off']
     
         labels = {
             "humidity":_("Relative Percent Humidity"),
             "r1_water":_("Number of Seconds to Water Row 1"),
             "r2_water":_("Number of Seconds to Water Row 2"),
             "r3_water":_("Number of Seconds to Water Row 3"),
+            "water_frequency":_("How often to water in minutes"),
             "lights_on":_("What time of day to start the lights"),
             "lights_off":_("What time of day to turn off the lights")
         }

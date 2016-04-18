@@ -46,5 +46,6 @@ class controller_setpoints(models.Model):
     r1_water = models.IntegerField()
     r2_water = models.IntegerField()
     r3_water = models.IntegerField()
+    water_frequency = models.IntegerField(null=True)
     lights_on = models.TimeField(null=True)
     lights_off = models.TimeField(null=True)
